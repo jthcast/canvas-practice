@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import Gui from '../components/Gui';
 import styles from '../styles/Breakout.module.css'
 
 export default function Breakout() {
@@ -180,7 +179,6 @@ export default function Breakout() {
 
   return (
     <div className={styles.container}>
-      <Gui />
       <canvas ref={canvasEl} width={400} height={400} />
       <a
         href={`https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript`}
