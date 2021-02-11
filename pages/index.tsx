@@ -21,6 +21,13 @@ export default function Home() {
             </a>
           </Link>
         </div>
+        <div className={styles.grid}>
+          <Link href={`/bar-chart`}>
+            <a className={styles.card}>
+              <p>Bar Chart</p>
+            </a>
+          </Link>
+        </div>
       </main>
     </div>
   )
