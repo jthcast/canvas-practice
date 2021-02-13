@@ -8,6 +8,7 @@ interface BarchartOptions {
   gridScale: number;
   data: Record<string, number>;
   colors: string[];
+  seriesName: string;
 }
 
 export default function BarChart() {
@@ -20,7 +21,14 @@ export default function BarChart() {
     'Jazz': 12
   }
 
-  function drawLine(ctx: CanvasRenderingContext2D, startX: number, startY: number, endX: number, endY: number, color: string) {
+  function drawLine(
+    ctx: CanvasRenderingContext2D,
+    startX: number,
+    startY: number,
+    endX: number,
+    endY: number,
+    color: string
+  ) {
     ctx.save();
     ctx.strokeStyle = color;
     ctx.beginPath();
@@ -36,10 +44,28 @@ export default function BarChart() {
     upperLeftCornerY: number,
     width: number,
     height: number,
-    color: string) {
+    color: string
+  ) {
     ctx.save();
     ctx.fillStyle = color;
     ctx.fillRect(upperLeftCornerX, upperLeftCornerY, width, height);
+    ctx.restore();
+  }
+
+  function drawLegend(
+    ctx: CanvasRenderingContext2D,
+    upperLeftCornerX: number,
+    upperLeftCornerY: number,
+    text: string,
+    color: string
+  ) {
+    ctx.save();
+    ctx.fillStyle = color;
+    ctx.fillRect(upperLeftCornerX, upperLeftCornerY, 20, 20);
+    ctx.font = 'bold 10px Arial';
+    ctx.fillStyle = '#000';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(text, upperLeftCornerX + 30, upperLeftCornerY + 10);
     ctx.restore();
   }
 
@@ -64,7 +90,7 @@ export default function BarChart() {
         ctx.save();
         ctx.fillStyle = gridColor;
         ctx.font = 'bold 10px Arial';
-        ctx.fillText(gridValue.toString(), 0, gridY - 2);
+        ctx.fillText(gridValue.toString(), 10, gridY - 2);
         ctx.restore();
         gridValue += gridScale;
       }
@@ -76,9 +102,26 @@ export default function BarChart() {
       for (const categ in data) {
         const val = data[categ];
         const barHeight = Math.round(canvasActualHeight * (val / maxValue));
-        drawBar(ctx, padding + (barIndex * barSize), canvas.height - barHeight - padding, barSize, barHeight, colors[barIndex % colors.length]);
+        drawBar(
+          ctx,
+          padding + (barIndex * barSize),
+          canvas.height - barHeight - padding,
+          barSize,
+          barHeight,
+          colors[barIndex % colors.length]
+        );
+        drawLegend(ctx, 0, barIndex * 20, categ, colors[barIndex % colors.length]);
         barIndex++;
       }
+
+      const seriesName = options.seriesName;//drawing series name
+      ctx.save();
+      ctx.textBaseline = 'bottom';
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#000000';
+      ctx.font = 'bold 14px Arial';
+      ctx.fillText(seriesName, canvas.width / 2, canvas.height);
+      ctx.restore();
     }
     draw();
   }
@@ -89,11 +132,12 @@ export default function BarChart() {
     canvas.height = 300;
     drawBarchart({
       canvas: canvas,
-      padding: 10,
+      padding: 20,
       gridScale: 5,
       gridColor: "#e5e5e5",
       data: mockData,
-      colors: ["#a55ca5", "#67b6c7", "#bccd7a", "#eb9743"]
+      colors: ["#a55ca5", "#67b6c7", "#bccd7a", "#eb9743"],
+      seriesName: 'Vinyl records'
     });
 
     return () => {
