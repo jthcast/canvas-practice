@@ -3,7 +3,6 @@ import styles from '../styles/Breakout.module.css'
 
 export default function SvgPieChart() {
   const divEl = useRef<HTMLDivElement>();
-
   const mockData = [{
     fill: 15,
     color: '#80e080'
@@ -17,8 +16,6 @@ export default function SvgPieChart() {
     fill: 30,
     color: '#f06292'
   }];
-
-
 
   useEffect(() => {
     const div = divEl.current;
