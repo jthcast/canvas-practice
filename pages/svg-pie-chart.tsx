@@ -1,16 +1,6 @@
 import { useEffect, useRef } from 'react'
 import styles from '../styles/Breakout.module.css'
 
-interface BarchartOptions {
-  canvas: HTMLCanvasElement;
-  padding: number;
-  gridColor: string;
-  gridScale: number;
-  data: Record<string, number>;
-  colors: string[];
-  seriesName: string;
-}
-
 export default function SvgPieChart() {
   const divEl = useRef<HTMLDivElement>();
 
