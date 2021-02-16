@@ -28,6 +28,13 @@ export default function Home() {
             </a>
           </Link>
         </div>
+        <div className={styles.grid}>
+          <Link href={`/svg-pie-chart`}>
+            <a className={styles.card}>
+              <p>SVG Pie Chart</p>
+            </a>
+          </Link>
+        </div>
       </main>
     </div>
   )
