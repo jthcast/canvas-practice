@@ -35,6 +35,13 @@ export default function Home() {
             </a>
           </Link>
         </div>
+        <div className={styles.grid}>
+          <Link href={`/clouds-over-background`}>
+            <a className={styles.card}>
+              <p>Tearable Cloth</p>
+            </a>
+          </Link>
+        </div>
       </main>
     </div>
   )
