@@ -12,6 +12,7 @@ export default function TearableCloth() {
     canvas.width = width;
     canvas.height = height;
 
+    let animationId = undefined;
     let background = undefined;
     let cloud = undefined;
     let cloud_x = undefined;
@@ -36,14 +37,14 @@ export default function TearableCloth() {
       }
       ctx.drawImage(background, 0, 0);
       ctx.drawImage(cloud, cloud_x, 0);
-      console.log(cloud_x)
-      requestAnimationFrame(update);
+      animationId = requestAnimationFrame(update);
     }
 
     init();
     update();
 
     return () => {
+      cancelAnimationFrame(animationId);
     }
   }, []);
 

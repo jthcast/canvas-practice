@@ -38,7 +38,7 @@ export default function Home() {
         <div className={styles.grid}>
           <Link href={`/clouds-over-background`}>
             <a className={styles.card}>
-              <p>Tearable Cloth</p>
+              <p>clouds over background</p>
             </a>
           </Link>
         </div>

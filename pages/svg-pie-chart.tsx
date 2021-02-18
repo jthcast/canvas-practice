@@ -16,6 +16,7 @@ export default function SvgPieChart() {
     fill: 30,
     color: '#f06292'
   }];
+  let animationId = undefined;
 
   useEffect(() => {
     const div = divEl.current;
@@ -51,11 +52,14 @@ export default function SvgPieChart() {
       circle.setAttribute('transform', `rotate(${angle}, ${cx}, ${cy})`);
       svg.appendChild(circle);
       filled += fill;
-      requestAnimationFrame(() => circle.style[`stroke-dashoffset`] = dashOffset);
+      animationId = requestAnimationFrame(() => {
+        circle.style[`stroke-dashoffset`] = dashOffset
+      });
     });
     div.appendChild(svg);
 
     return () => {
+      cancelAnimationFrame(animationId);
     }
   }, []);
 

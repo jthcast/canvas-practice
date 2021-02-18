@@ -34,6 +34,7 @@ export default function Breakout() {
         bricks[c][r] = { x: 0, y: 0, status: 1 };
       }
     }
+    let animationId = undefined;
 
     function drawLives() {
       ctx.font = `16px Arial`;
@@ -139,7 +140,7 @@ export default function Breakout() {
 
       x += dx;
       y += dy;
-      requestAnimationFrame(draw);
+      animationId = requestAnimationFrame(draw);
     }
 
     function keyDownHandler(e: KeyboardEvent) {
@@ -171,6 +172,7 @@ export default function Breakout() {
     draw();
 
     return () => {
+      cancelAnimationFrame(animationId);
       document.removeEventListener(`keydown`, keyDownHandler);
       document.removeEventListener(`keyup`, keyUpHandler);
       document.removeEventListener(`mousemove`, mouseMoveHandler);
