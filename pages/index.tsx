@@ -3,6 +3,23 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
 export default function Home() {
+  const items = [{
+    href: `breakout`,
+    title: `Breakout`
+  },
+  {
+    href: `bar-chart`,
+    title: `Bar Chart`
+  },
+  {
+    href: `svg-pie-chart`,
+    title: `SVG Pie Chart`
+  },
+  {
+    href: `clouds-over-background`,
+    title: `clouds over background`
+  }];
+
   return (
     <div className={styles.container}>
       <Head>
@@ -14,34 +31,15 @@ export default function Home() {
         <h1 className={styles.title}>
           Canvas Practice
         </h1>
-        <div className={styles.grid}>
-          <Link href={`/breakout`}>
-            <a className={styles.card}>
-              <p>Breakout</p>
-            </a>
-          </Link>
-        </div>
-        <div className={styles.grid}>
-          <Link href={`/bar-chart`}>
-            <a className={styles.card}>
-              <p>Bar Chart</p>
-            </a>
-          </Link>
-        </div>
-        <div className={styles.grid}>
-          <Link href={`/svg-pie-chart`}>
-            <a className={styles.card}>
-              <p>SVG Pie Chart</p>
-            </a>
-          </Link>
-        </div>
-        <div className={styles.grid}>
-          <Link href={`/clouds-over-background`}>
-            <a className={styles.card}>
-              <p>clouds over background</p>
-            </a>
-          </Link>
-        </div>
+        {items && items.map((item) => {
+          return (
+            <Link key={item.href} href={`/${item.href}`}>
+              <a>
+                <p>{item.title}</p>
+              </a>
+            </Link>
+          )
+        })}
       </main>
     </div>
   )
