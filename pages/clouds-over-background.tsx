@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import styles from '../styles/Breakout.module.css'
 
-export default function TearableCloth() {
+export default function cloudsOverBackground() {
   const canvasEl = useRef<HTMLCanvasElement>();
 
   useEffect(() => {
