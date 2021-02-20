@@ -3,22 +3,29 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
 export default function Home() {
-  const items = [{
-    href: `breakout`,
-    title: `Breakout`
-  },
-  {
-    href: `bar-chart`,
-    title: `Bar Chart`
-  },
-  {
-    href: `svg-pie-chart`,
-    title: `SVG Pie Chart`
-  },
-  {
-    href: `clouds-over-background`,
-    title: `clouds over background`
-  }];
+  const items = [
+    {
+      href: `breakout`,
+      title: `Breakout`
+    },
+    {
+      href: `bar-chart`,
+      title: `Bar Chart`
+    },
+    {
+      href: `svg-pie-chart`,
+      title: `SVG Pie Chart`
+    },
+    {
+      href: `clouds-over-background`,
+      title: `clouds over background`
+    },
+    {
+      href: `an-animated-solar-system`,
+      title: `An animated solar system`
+    },
+
+  ];
 
   return (
     <div className={styles.container}>
