@@ -24,7 +24,10 @@ export default function Home() {
       href: `an-animated-solar-system`,
       title: `An animated solar system`
     },
-
+    {
+      href: `canvas-lightning`,
+      title: `Canvas Lightning`
+    },
   ];
 
   return (

@@ -11,3 +11,7 @@
   color: blue;
   margin: 1rem 0;
 }
+
+.container > .canvasLightning {
+  background: linear-gradient(#000, #151515);
+}
