@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import styles from '../styles/Breakout.module.css'
 
-interface lightning {
+interface Lightning {
   x: number;
   y: number;
   xRange: number;
@@ -25,7 +25,7 @@ export default function canvasLightning() {
     ch: number;
     mx: number;
     my: number;
-    lightning: lightning[];
+    lightning: Lightning[];
     lightTimeCurrent: number;
     lightTimeTotal: number;
 
