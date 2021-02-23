@@ -28,6 +28,10 @@ export default function Home() {
       href: `canvas-lightning`,
       title: `Canvas Lightning`
     },
+    {
+      href: `sprite-animation-coin`,
+      title: `CREATE A SPRITE ANIMATION WITH HTML5 CANVAS AND JAVASCRIPT`
+    },
   ];
 
   return (
