@@ -32,6 +32,10 @@ export default function Home() {
       href: `sprite-animation-coin`,
       title: `CREATE A SPRITE ANIMATION WITH HTML5 CANVAS AND JAVASCRIPT`
     },
+    {
+      href: `canvas-animated-clock`,
+      title: `HTML5 Canvas animated clock`
+    },
   ];
 
   return (
