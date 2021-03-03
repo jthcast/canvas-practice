@@ -36,6 +36,10 @@ export default function Home() {
       href: `canvas-animated-clock`,
       title: `HTML5 Canvas animated clock`
     },
+    {
+      href: `hypnos`,
+      title: `hypnos`
+    },
   ];
 
   return (
