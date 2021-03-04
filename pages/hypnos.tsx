@@ -32,7 +32,6 @@ export default function Hypnos() {
           r: (i / quality) * Math.PI
         });
       }
-      console.log(layers);
       resize();
       update();
     }
@@ -44,8 +43,8 @@ export default function Hypnos() {
 
     function update() {
       animationId = requestAnimationFrame(update);
-      // step();
-      // clear();
+      step();
+      clear();
       paint();
     }
 
@@ -86,6 +85,16 @@ export default function Hypnos() {
         ctx.globalCompositeOperation = `destination-over`;
         paintLayer(layers[i]);
         ctx.restore();
+      }
+    }
+
+    function clear() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function step() {
+      for (let i = 0; i < layers.length; i++) {
+        layers[i].r += 0.01;
       }
     }
 
