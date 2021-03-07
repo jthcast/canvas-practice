@@ -40,6 +40,10 @@ export default function Home() {
       href: `hypnos`,
       title: `hypnos`
     },
+    {
+      href: `particles`,
+      title: `particles`
+    },
   ];
 
   return (
